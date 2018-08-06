@@ -1,0 +1,115 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Card_Maker">
+
+    <Style TargetType="Grid">
+        <Setter Property="Background" Value="Transparent"/>
+    </Style>
+
+    <Style TargetType="Label">
+        <Setter Property="Foreground" Value="LightGray"/>
+    </Style>
+
+    <Style x:Key="Input" TargetType="Control">
+        <Setter Property="Background" Value="{DynamicResource InputColor}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource InputColor}"/>
+        <Setter Property="Foreground" Value="{DynamicResource InputText}"/>
+    </Style>
+
+    <Style TargetType="TextBox" BasedOn="{StaticResource Input}" />
+
+    <Style TargetType="ComboBoxItem" BasedOn="{StaticResource Input}" />
+
+    <Style TargetType="ListBox" BasedOn="{StaticResource Input}" />
+
+    <Style TargetType="Button" BasedOn="{StaticResource Input}" />
+
+    <Style TargetType="GroupBox">
+        <Style.Resources>
+            <Style TargetType="Grid">
+                <Setter Property="Background" Value="#2F3136"/>
+            </Style>
+        </Style.Resources>
+
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Foreground" Value="LightGray"/>
+        <Setter Property="Background">
+            <Setter.Value>
+                <SolidColorBrush Color="White" />
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="GroupBox">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Border Grid.Row="0"
+                      BorderThickness="1"
+                      CornerRadius="0,0,0,0">
+                            <Border.BorderBrush>
+                                <LinearGradientBrush StartPoint="0,0"
+                                       EndPoint="0,1">
+                                    <LinearGradientBrush.GradientStops>
+                                        <GradientStopCollection>
+                                            <GradientStop Color=" #202225"
+                                      Offset="0.0" />
+                                            <GradientStop Color=" #202225"
+                                      Offset="1.0" />
+                                        </GradientStopCollection>
+                                    </LinearGradientBrush.GradientStops>
+                                </LinearGradientBrush>
+                            </Border.BorderBrush>
+
+                            <Border.Background>
+                                <LinearGradientBrush StartPoint="0,0"
+                                       EndPoint="0,1">
+                                    <LinearGradientBrush.GradientStops>
+                                        <GradientStopCollection>
+                                            <GradientStop Color="#202225"
+                                      Offset="0.0" />
+                                            <GradientStop Color="#202225"
+                                      Offset="1.0" />
+                                        </GradientStopCollection>
+                                    </LinearGradientBrush.GradientStops>
+                                </LinearGradientBrush>
+                            </Border.Background>
+
+                            <ContentPresenter Margin="4"
+                                  ContentSource="Header"
+                                  RecognizesAccessKey="True" />
+                        </Border>
+
+                        <Border Grid.Row="1"
+                      BorderThickness="1,0,1,1"
+                      CornerRadius="0,0,2,2">
+                            <Border.BorderBrush>
+                                <SolidColorBrush Color="#2F3136" />
+                            </Border.BorderBrush>
+                            <Border.Background>
+                                <LinearGradientBrush EndPoint="0.5,1"
+                                       MappingMode="RelativeToBoundingBox"
+                                       StartPoint="0.5,0">
+                                    <GradientStop Color="#2F3136"
+                                  Offset="0" />
+                                    <GradientStop Color="#2F3136"
+                                  Offset="1" />
+                                </LinearGradientBrush>
+                            </Border.Background>
+                            <ContentPresenter Margin="4" />
+                        </Border>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <SolidColorBrush x:Key="ComboBox.Static.Border" Color="#FFACACAC"/>
+    <SolidColorBrush x:Key="ComboBox.Static.Glyph" Color="#FF606060"/>
+
+    <SolidColorBrush x:Key="InputColor" Color="#484B51"/>
+    <SolidColorBrush x:Key="DarkerColor" Color="#2F3136"/>
+    <SolidColorBrush x:Key="InputText" Color="#F9F9F9"/>
+</ResourceDictionary>

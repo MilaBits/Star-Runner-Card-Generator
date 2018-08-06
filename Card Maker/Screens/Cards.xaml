@@ -1,0 +1,43 @@
+﻿<Window x:Class="Card_Maker.Screens.Cards"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Card_Maker"
+        mc:Ignorable="d"
+        Title="Cards" Height="659.761" Width="898.606">
+
+    <Window.Resources>
+        <Style TargetType="{x:Type ListBox}">
+            <Setter Property="Background" Value="{StaticResource InputColor}"/>
+            <Setter Property="ItemTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <Border CornerRadius="0" Margin="6" Background="{StaticResource DarkerColor}">
+                            <StackPanel>
+                                <Image Source="{Binding Path=Image.UriSource}" Stretch="Uniform" Width="250" Height="350" />
+                                <Label Content="{Binding Path=Filename}" Width="250" Foreground="{DynamicResource InputText}"/>
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="ItemsPanel">
+                <Setter.Value>
+                    <ItemsPanelTemplate>
+                        <WrapPanel />
+                    </ItemsPanelTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
+        </Style>
+    </Window.Resources>
+
+    <Window.DataContext>
+        <ObjectDataProvider ObjectType="{x:Type local:ImageLoader}" MethodName="LoadImages" />
+    </Window.DataContext>
+
+    <Grid>
+        <ListBox x:Name="lbCards" ItemsSource="{Binding}" SelectionChanged="ListBox_SelectionChanged"/>
+    </Grid>
+</Window>
