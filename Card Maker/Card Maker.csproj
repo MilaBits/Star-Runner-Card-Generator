@@ -83,7 +83,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ImageLoader.cs" />
+    <Compile Include="CardLoader.cs" />
+    <Compile Include="LinqHelper.cs" />
     <Compile Include="Models\Card.cs" />
     <Compile Include="Models\CardItem.cs" />
     <Compile Include="Screens\Cards.xaml.cs">

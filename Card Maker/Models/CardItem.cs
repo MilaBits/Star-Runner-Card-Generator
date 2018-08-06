@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Media.Imaging;
 
 namespace Card_Maker.Models {
@@ -27,9 +23,19 @@ namespace Card_Maker.Models {
             }
         }
 
-        public CardItem(BitmapImage image, string filename) {
+        private Card _cardData;
+        public Card CardData {
+            get { return _cardData; }
+            set {
+                _cardData = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        public CardItem(BitmapImage image, string filename, Card cardData) {
             Image = image;
             Filename = filename;
+            CardData = cardData;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
