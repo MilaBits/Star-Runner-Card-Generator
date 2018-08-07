@@ -42,7 +42,7 @@
             <TextBox x:Name="tbSearch" TabIndex="1" Width="250" Height="30" Margin="5,5,0,5" VerticalContentAlignment="Center" FontSize="16" GotFocus="tbSearch_GotFocus"/>
             <CheckBox x:Name="cbDescription" Content="Include Description" Foreground="WhiteSmoke" FontWeight="SemiBold" FontSize="16" VerticalContentAlignment="Center" Margin="5,5,0,5"/>
             <ComboBox x:Name="cbbRole" TabIndex="2" Text="Role" Width="150" FontWeight="SemiBold" FontSize="16" VerticalContentAlignment="Center" Margin="5,5,0,5"/>
-            <Label Content="Level" Foreground="WhiteSmoke" FontWeight="SemiBold" FontSize="16" VerticalContentAlignment="Center" Margin="5,5,0,5"/>
+            <Label Content="Cost" Foreground="WhiteSmoke" FontWeight="SemiBold" FontSize="16" VerticalContentAlignment="Center" Margin="5,5,0,5"/>
             <Slider x:Name="slCost" Minimum="-1" Maximum="6" Width="100" VerticalAlignment="Center" Margin="0,5" IsSnapToTickEnabled="True" SmallChange="0" Background="#00000000" Foreground="#FFBFBFBF" TickPlacement="TopLeft" Value="-1"/>
             <Label x:Name="lbCost" Content="Any" Foreground="WhiteSmoke" FontWeight="SemiBold" FontSize="16" VerticalContentAlignment="Center" Margin="0,5,0,5" Padding="0,5,5,5"/>
             <Button x:Name="btnClear" Content="Clear" Foreground="WhiteSmoke" FontWeight="SemiBold" FontSize="16" VerticalContentAlignment="Center" Margin="5,5,0,5" Padding="10,1" Click="btnClear_Click"/>
