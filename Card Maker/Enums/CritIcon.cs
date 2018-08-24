@@ -1,8 +1,10 @@
-﻿namespace Card_Maker.Enums {
-    public enum CritIcon {
+﻿namespace Card_Maker.Enums
+{
+    public enum CritBar
+    {
         D6,
-        Bullseye,
-        Cross,
-        BullseyeAndCross
+        Positive,
+        Negative,
+        Both
     }
 }

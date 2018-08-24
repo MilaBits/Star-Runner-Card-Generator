@@ -20,12 +20,12 @@
         </GroupBox>
         <GroupBox Header="Critical Effects" Margin="10,0,0,46" HorizontalAlignment="Left" Width="234" Height="212" VerticalAlignment="Bottom" FontWeight="Bold">
             <Grid>
-                <Label Content="Critical Success" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Padding="5,0,5,5" FontWeight="Normal"/>
-                <TextBox x:Name="tbCriticalSucces" Height="23" Margin="10,36,10,0" TextWrapping="Wrap" VerticalAlignment="Top" SpellCheck.IsEnabled="True" Padding="0,0,0,5" FontWeight="Normal" TextChanged="tbCriticalSucces_TextChanged" TabIndex="6"/>
-                <Label Content="Critical Failure" HorizontalAlignment="Left" Margin="10,64,0,0" VerticalAlignment="Top" Padding="5,0,5,5" FontWeight="Normal"/>
-                <TextBox x:Name="tbCriticalFailure" Height="23" Margin="10,90,10,0" TextWrapping="Wrap" VerticalAlignment="Top" SpellCheck.IsEnabled="True" Padding="0,0,0,5" FontWeight="Normal" TextChanged="tbCriticalFailure_TextChanged" TabIndex="7"/>
-                <ComboBox x:Name="cbbCritIcons" HorizontalAlignment="Left" Margin="10,144,0,0" VerticalAlignment="Top" Width="202" Padding="6,3,5,5" FontWeight="Normal" SelectionChanged="cbbCritIcons_SelectionChanged" TabIndex="8"/>
-                <Label Content="Icon(s)" HorizontalAlignment="Left" Margin="10,118,0,0" VerticalAlignment="Top" Padding="5,0,5,5" FontWeight="Normal"/>
+                <Label x:Name="lbFirstBar" Content="First Bar" HorizontalAlignment="Left" Margin="10,64,0,0" VerticalAlignment="Top" Padding="5,0,5,5" FontWeight="Normal"/>
+                <TextBox x:Name="tbFirstBar" Height="23" Margin="10,90,10,0" TextWrapping="Wrap" VerticalAlignment="Top" SpellCheck.IsEnabled="True" Padding="0,0,0,5" FontWeight="Normal" TextChanged="tbFirstBar_TextChanged" TabIndex="6"/>
+                <Label x:Name="lbSecondBar" Content="Second Bar" HorizontalAlignment="Left" Margin="10,118,0,0" VerticalAlignment="Top" Padding="5,0,5,5" FontWeight="Normal"/>
+                <TextBox x:Name="tbSecondBar" Height="23" Margin="10,144,10,0" TextWrapping="Wrap" VerticalAlignment="Top" SpellCheck.IsEnabled="True" Padding="0,0,0,5" FontWeight="Normal" TextChanged="tbSecondBar_TextChanged" TabIndex="7"/>
+                <ComboBox x:Name="cbbCritIcons" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" Width="202" Padding="6,3,5,5" FontWeight="Normal" SelectionChanged="cbbCritIcons_SelectionChanged" TabIndex="8"/>
+                <Label Content="Effect Type" HorizontalAlignment="Left" Margin="10,9,0,0" VerticalAlignment="Top" Padding="5,0,5,5" FontWeight="Normal"/>
             </Grid>
         </GroupBox>
         <GroupBox Header="Roll Type" HorizontalAlignment="Left" Height="149" Margin="10,0,0,263" VerticalAlignment="Bottom" Width="234" FontWeight="Bold">
@@ -38,7 +38,7 @@
         </GroupBox>
         <GroupBox Header="Card Text" HorizontalAlignment="Left" Margin="10,10,0,417" Width="390" FontWeight="Bold">
             <Grid>
-                <TextBox x:Name="tbDescription" TabIndex="1" Margin="10,90,10,117" TextWrapping="Wrap" AcceptsReturn="True" Padding="0,0,0,5" FontWeight="Normal" TextChanged="tbDescription_TextChanged"/>
+                <TextBox x:Name="tbDescription" TabIndex="1" Margin="10,90,10,171" TextWrapping="Wrap" AcceptsReturn="True" Padding="0,0,0,5" FontWeight="Normal" TextChanged="tbDescription_TextChanged"/>
                 <Label Content="Description" HorizontalAlignment="Left" Margin="10,64,0,0" VerticalAlignment="Top" Padding="5,0,5,5" FontWeight="Normal"/>
                 <TextBox x:Name="tbRollTarget" Margin="10,0,10,63" TabIndex="2" TextWrapping="Wrap" AcceptsReturn="True" Height="23" VerticalAlignment="Bottom" Padding="0,0,0,5" FontWeight="Normal" TextChanged="tbRollTarget_TextChanged"/>
                 <ComboBox x:Name="cbbPhase" Margin="10,0,10,10" Height="22" VerticalAlignment="Bottom" Padding="6,3,5,5" TabIndex="3"  FontWeight="Normal" SelectionChanged="cbbPhase_SelectionChanged"/>
@@ -46,6 +46,8 @@
                 <Label Content="Phase" HorizontalAlignment="Left" Margin="10,0,0,37" Padding="5,0,5,5" Height="21" VerticalAlignment="Bottom" FontWeight="Normal"/>
                 <TextBox x:Name="tbCardName" TabIndex="0" Margin="10,36,10,0" TextWrapping="Wrap" AcceptsReturn="True" Padding="0,0,0,5" Height="23" VerticalAlignment="Top" FontWeight="Normal" TextChanged="tbCardName_TextChanged"/>
                 <Label Content="Card Name" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Padding="5,0,5,5" FontWeight="Normal"/>
+                <Label Content="Summary" HorizontalAlignment="Left" Margin="10,183,0,0" VerticalAlignment="Top" Padding="5,0,5,5" FontWeight="Normal"/>
+                <TextBox x:Name="tbSummary" TabIndex="0" Margin="10,209,10,0" TextWrapping="Wrap" AcceptsReturn="True" Padding="0,0,0,5" Height="23" VerticalAlignment="Top" FontWeight="Normal" TextChanged="tbSummary_TextChanged"/>
             </Grid>
         </GroupBox>
         <GroupBox Header="Background" Height="101" Margin="405,10,16,0" VerticalAlignment="Top" FontWeight="Bold">

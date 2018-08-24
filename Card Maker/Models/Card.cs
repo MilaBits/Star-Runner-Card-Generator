@@ -12,6 +12,7 @@ namespace Card_Maker.Models {
         public string Name { get; set; }
         public string Filename { get; set; }
         public string Description { get; set; }
+        public string Summary { get; set; }
 
         public string BackgroundPath { get; set; }
         public PointF BackgroundOffset { get; set; }
@@ -27,7 +28,7 @@ namespace Card_Maker.Models {
 
         public List<Role> Roles { get; set; }
 
-        public CritIcon CritIcon { get; set; }
+        public CritBar CritIcon { get; set; }
         public string CriticalSuccess { get; set; }
         public string CriticalFailure { get; set; }
 

@@ -184,4 +184,16 @@
   <data name="TitleBarSlim" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TitleBarSlim.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="CritBadBar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CritBadBar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CritBothBar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CritBothBar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CritD6Bar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CritD6Bar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CritGoodBar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CritGoodBar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

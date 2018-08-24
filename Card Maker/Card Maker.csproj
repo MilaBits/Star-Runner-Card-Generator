@@ -182,9 +182,6 @@
     <None Include="Resources\SecondaryHex5.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\TitleBar.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\XIcon.png" />
   </ItemGroup>
   <ItemGroup>
@@ -210,6 +207,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\TitleBarSlim.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CritBadBar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CritBothBar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CritD6Bar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CritGoodBar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TitleBar.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="AfterResolveReferences">

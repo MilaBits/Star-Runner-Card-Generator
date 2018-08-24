@@ -93,9 +93,49 @@ namespace Card_Maker.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap CritBadBar {
+            get {
+                object obj = ResourceManager.GetObject("CritBadBar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap CritBar {
             get {
                 object obj = ResourceManager.GetObject("CritBar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CritBothBar {
+            get {
+                object obj = ResourceManager.GetObject("CritBothBar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CritD6Bar {
+            get {
+                object obj = ResourceManager.GetObject("CritD6Bar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CritGoodBar {
+            get {
+                object obj = ResourceManager.GetObject("CritGoodBar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

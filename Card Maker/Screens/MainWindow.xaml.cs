@@ -71,7 +71,7 @@ namespace Card_Maker
 
         private void SetUpCritIcons()
         {
-            foreach (string icons in Enum.GetNames(typeof(CritIcon)))
+            foreach (string icons in Enum.GetNames(typeof(CritBar)))
             {
                 cbbCritIcons.Items.Add(icons);
             }
@@ -187,25 +187,22 @@ namespace Card_Maker
                 graphics.DrawImage(Properties.Resources.CardFrame, 0, 0, cardWidth, cardHeight);
 
                 // Draw Critbar
-                if (!string.IsNullOrWhiteSpace(tbCriticalSucces.Text) ||
-                    !string.IsNullOrWhiteSpace(tbCriticalFailure.Text))
+                if (!string.IsNullOrWhiteSpace(tbFirstBar.Text) ||
+                    !string.IsNullOrWhiteSpace(tbSecondBar.Text))
                 {
-                    graphics.DrawImage(Properties.Resources.CritBar, 0, 0, cardWidth, cardHeight);
-
                     switch (cbbCritIcons.SelectedIndex)
                     {
-                        case (int)CritIcon.D6:
-                            graphics.DrawImage(Properties.Resources.D6Crit, 0, 0, cardWidth, cardHeight);
+                        case (int)CritBar.D6:
+                            graphics.DrawImage(Properties.Resources.CritD6Bar, 0, 0, cardWidth, cardHeight);
                             break;
-                        case (int)CritIcon.Bullseye:
-                            graphics.DrawImage(Properties.Resources.CritIcon, 0, 0, cardWidth, cardHeight);
+                        case (int)CritBar.Positive:
+                            graphics.DrawImage(Properties.Resources.CritGoodBar, 0, 0, cardWidth, cardHeight);
                             break;
-                        case (int)CritIcon.Cross:
-                            graphics.DrawImage(Properties.Resources.XIcon, 0, 0, cardWidth, cardHeight);
+                        case (int)CritBar.Negative:
+                            graphics.DrawImage(Properties.Resources.CritBadBar, 0, 0, cardWidth, cardHeight);
                             break;
-                        case (int)CritIcon.BullseyeAndCross:
-                            graphics.DrawImage(Properties.Resources.CritIcon, 0, 0, cardWidth, cardHeight);
-                            graphics.DrawImage(Properties.Resources.XIcon, 0, 0, cardWidth, cardHeight);
+                        case (int)CritBar.Both:
+                            graphics.DrawImage(Properties.Resources.CritBothBar, 0, 0, cardWidth, cardHeight);
                             break;
                     }
                 }
@@ -242,6 +239,16 @@ namespace Card_Maker
                 }
                 catch { }
 
+                if (!string.IsNullOrWhiteSpace(cardInfo.Summary))
+                {
+                    using (Font NerisBig = new Font("Conthrax Sb", 14, System.Drawing.FontStyle.Bold))
+                    {
+                        SizeF PhaseSize = graphics.MeasureString(SplitCamelCaseExtension.SplitCamelCase(cardInfo.Summary), NerisBig, 817);
+                        graphics.DrawString(SplitCamelCaseExtension.SplitCamelCase(cardInfo.Summary), NerisBig, System.Drawing.Brushes.Gray,
+                            new PointF(cardWidth / 2 - PhaseSize.Width / 2, 62));
+                    }
+                }
+
                 using (Font MainHeading = new Font("Conthrax Sb", 27))
                 {
                     SizeF titleSize = graphics.MeasureString(cardInfo.Name, MainHeading, 500);
@@ -261,14 +268,17 @@ namespace Card_Maker
                     }
                 }
 
-                using (Font NerisBig = new Font("Conthrax Sb", 20, System.Drawing.FontStyle.Regular))
+                using (Font NerisBig = new Font("Conthrax Sb", 12, System.Drawing.FontStyle.Regular))
                 {
                     SizeF PhaseSize = graphics.MeasureString(
     SplitCamelCaseExtension.SplitCamelCase(Enum.GetName(typeof(Phase), cardInfo.Phase)), NerisBig, 500);
                     graphics.DrawString(
                         SplitCamelCaseExtension.SplitCamelCase(Enum.GetName(typeof(Phase), cardInfo.Phase)), NerisBig,
-                        System.Drawing.Brushes.Orange, new PointF(cardWidth / 2 - PhaseSize.Width / 2, 55));
+                        System.Drawing.Brushes.Orange, new PointF(cardWidth / 2 - PhaseSize.Width / 2, 160));
+                }
 
+                using (Font NerisBig = new Font("Conthrax Sb", 20, System.Drawing.FontStyle.Regular))
+                {
                     SizeF rollTargetSize = graphics.MeasureString(tbRollTarget.Text, NerisBig, 500);
                     graphics.DrawString(cardInfo.RollTarget, NerisBig, System.Drawing.Brushes.Orange,
                         new PointF(cardWidth / 2 - rollTargetSize.Width / 2, 585));
@@ -282,13 +292,28 @@ namespace Card_Maker
 
                 using (Font Critical = new Font("Neris Black", 24))
                 {
-                    graphics.DrawString(cardInfo.CriticalSuccess, Critical, System.Drawing.Brushes.White,
-                        new PointF(125, 985));
+                    switch (currentCard.CritIcon)
+                    {
+                        case CritBar.Positive:
+                            graphics.DrawString(cardInfo.CriticalSuccess, Critical, System.Drawing.Brushes.White,
+                                new PointF(125, 1000));
+                            break;
+                        case CritBar.Negative:
+                            graphics.DrawString(cardInfo.CriticalFailure, Critical, System.Drawing.Brushes.White,
+                                new PointF(125, 1000));
+                            break;
+                        case CritBar.Both:
+                            graphics.DrawString(cardInfo.CriticalSuccess, Critical, System.Drawing.Brushes.White,
+                                new PointF(125, 932));
 
-                    //Align right Critical Fail
-                    SizeF critFailSize = graphics.MeasureString(cardInfo.CriticalFailure, Critical, 500);
-                    graphics.DrawString(cardInfo.CriticalFailure, Critical, System.Drawing.Brushes.White,
-                        new PointF(690 - critFailSize.Width, 985));
+                            graphics.DrawString(cardInfo.CriticalFailure, Critical, System.Drawing.Brushes.White,
+                                new PointF(125, 1000));
+                            break;
+                        case CritBar.D6:
+                            graphics.DrawString(cardInfo.CriticalSuccess, Critical, System.Drawing.Brushes.White,
+                                new PointF(125, 1000));
+                            break;
+                    }
                 }
 
                 SaveFile(card);
@@ -457,6 +482,13 @@ namespace Card_Maker
             StartTimer();
         }
 
+
+        private void tbSummary_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            currentCard.Summary = tbSummary.Text;
+            StartTimer();
+        }
+
         private void StartTimer()
         {
             currentInactiveTime = inactiveTime;
@@ -503,19 +535,48 @@ namespace Card_Maker
 
         private void cbbCritIcons_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            currentCard.CritIcon = (CritIcon)Enum.Parse(typeof(CritIcon), cbbCritIcons.SelectedItem.ToString());
+            currentCard.CritIcon = (CritBar)Enum.Parse(typeof(CritBar), cbbCritIcons.SelectedItem.ToString());
+
+            switch (currentCard.CritIcon)
+            {
+                case CritBar.Positive:
+                    lbFirstBar.IsEnabled = true;
+                    tbFirstBar.IsEnabled = true;
+                    tbSecondBar.IsEnabled = false;
+                    tbSecondBar.IsEnabled = false;
+                    break;
+                case CritBar.Negative:
+                    lbFirstBar.IsEnabled = false;
+                    tbFirstBar.IsEnabled = false;
+                    tbSecondBar.IsEnabled = true;
+                    tbSecondBar.IsEnabled = true;
+                    break;
+                case CritBar.Both:
+                    lbFirstBar.IsEnabled = true;
+                    tbFirstBar.IsEnabled = true;
+                    tbSecondBar.IsEnabled = true;
+                    tbSecondBar.IsEnabled = true;
+                    break;
+                case CritBar.D6:
+                    lbFirstBar.IsEnabled = true;
+                    tbFirstBar.IsEnabled = true;
+                    tbSecondBar.IsEnabled = false;
+                    tbSecondBar.IsEnabled = false;
+                    break;
+            }
+
             DrawCard(currentCard);
         }
 
-        private void tbCriticalFailure_TextChanged(object sender, TextChangedEventArgs e)
+        private void tbFirstBar_TextChanged(object sender, TextChangedEventArgs e)
         {
-            currentCard.CriticalFailure = tbCriticalFailure.Text;
+            currentCard.CriticalSuccess = tbFirstBar.Text;
             StartTimer();
         }
 
-        private void tbCriticalSucces_TextChanged(object sender, TextChangedEventArgs e)
+        private void tbSecondBar_TextChanged(object sender, TextChangedEventArgs e)
         {
-            currentCard.CriticalSuccess = tbCriticalSucces.Text;
+            currentCard.CriticalFailure = tbSecondBar.Text;
             StartTimer();
         }
 
@@ -579,12 +640,13 @@ namespace Card_Maker
         private void UpdateFields(Card card)
         {
             tbCardName.Text = card.Name;
-            tbCriticalSucces.Text = card.CriticalSuccess;
-            tbCriticalFailure.Text = card.CriticalFailure;
+            tbFirstBar.Text = card.CriticalSuccess;
+            tbSecondBar.Text = card.CriticalFailure;
             tbRollTarget.Text = card.RollTarget;
             tbRollType.Text = card.RollText;
             tbPath.Text = card.BackgroundPath;
             tbDescription.Text = card.Description;
+            tbSummary.Text = card.Summary;
             SlScale.Value = card.Scale;
 
             cbbCritIcons.SelectedIndex = (int)card.CritIcon;
