@@ -358,7 +358,7 @@ namespace Card_Maker
             List<Bitmap> roles = GetRoleBitmaps();
 
             // Draw main role, it always exists
-            g.DrawImage(roles[0], 74, 87, 69, 78);
+            g.DrawImage(roles[0], 73, 87, 69, 78);
 
             switch (roles.Count)
             {

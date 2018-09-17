@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Card_Maker"
         mc:Ignorable="d"
-        Title="StarRunner Card Maker" Height="842.457" Width="897.977" MinWidth="692.477" MinHeight="735.457" Background="White">
+        Title="StarDuster Card Maker" Height="842.457" Width="897.977" MinWidth="692.477" MinHeight="735.457" Background="White">
 
     <Grid Background="#FF36393E">
         <GroupBox Header="Cost" HorizontalAlignment="Left" Margin="249,0,0,46" Width="151" Height="366" VerticalAlignment="Bottom" Panel.ZIndex="5">
